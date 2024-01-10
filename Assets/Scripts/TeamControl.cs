@@ -4,41 +4,67 @@ using UnityEngine;
 
 public class TeamControl : MonoBehaviour
 {
+    [SerializeField]
+    float maxRange = 10;
     int LeaderNum = 1;
+    public CharacterControl[] characters;
 
-
-    //subscribe to event
+    //subscribe to event  
     private void OnEnable()
     {
         PlayerControl.ClickOnMap += MoveToDestination;
     }
 
+    public void FindCharacters()
+    {
+        //find all characters in scene
+        characters = FindObjectsOfType<CharacterControl>();
+        Debug.Log("TeamControl: FindCharacters"+characters.Length);
+        //set stats for each character
+        for(int i = 0; i < characters.Length; i++)
+        {
+            characters[i].CreateStats();
+        }
+    }
+
     public void MoveToDestination()
     {
-        Debug.Log("TeamControl: MoveToDestination");
+        //Debug.Log("TeamControl: MoveToDestination");
         //check if leader is selected
         if (LeaderNum >= 0)
         {
-            GetDestinationPoint();
-            Debug.Log("TeamControl: Leader selected");
+            Vector3 destination = GetDestinationPoint();
+            //Debug.Log("TeamControl: Leader selected");
+            //moveing each character to destination point
+            for(int i = 0; i < characters.Length; i++)
+            {
+                if(i == LeaderNum)
+                {
+                    Debug.Log("TeamControl: Leader");
+                    //move leader to destination point
+                    characters[i].MoveTo(destination);
+                }
+                else
+                {
+                    //follow leader
+                    Debug.Log("TeamControl: Follower");
+                    characters[i].FollowTo(destination, maxRange);
+                }
+            }
         }
         else
         {
-            Debug.Log("TeamControl: No leader selected");
+            //Debug.Log("TeamControl: No leader selected");
             return;
         }
     }
 
-    private void GetDestinationPoint()
+    private Vector3 GetDestinationPoint()
     {
         //raycast to get destination point
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
-        if (Physics.Raycast(ray, out hit))
-        {
-            Vector3 destination = hit.point;
-
-
-        }
+        Physics.Raycast(ray, out hit);
+        return hit.point;
     }
 }
