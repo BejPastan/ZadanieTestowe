@@ -6,8 +6,10 @@ public class TeamControl : MonoBehaviour
 {
     [SerializeField]
     float maxRange = 10;
-    int LeaderNum = 1;
+    int LeaderNum = -1;
     public CharacterControl[] characters;
+    [SerializeField]
+    UIManager UIManager;
 
     //subscribe to event  
     private void OnEnable()
@@ -54,8 +56,8 @@ public class TeamControl : MonoBehaviour
         }
         else
         {
-            //Debug.Log("TeamControl: No leader selected");
-            return;
+            //show message in info window if leader is not selected
+            UIManager.ShowInfo("Leader is not selected");
         }
     }
 
@@ -66,5 +68,12 @@ public class TeamControl : MonoBehaviour
         RaycastHit hit;
         Physics.Raycast(ray, out hit);
         return hit.point;
+    }
+
+    //selecting leader
+    public void SetLeader(int num)
+    {
+        Debug.Log("TeamControl: SetLeader " + num);
+        LeaderNum = num;
     }
 }

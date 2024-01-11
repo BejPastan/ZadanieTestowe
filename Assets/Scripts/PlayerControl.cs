@@ -27,6 +27,17 @@ public class PlayerControl : MonoBehaviour
                 }
             }
         }
+        //check if player scroll mouse wheel
+        if (Input.GetAxis("Mouse ScrollWheel") != 0)
+        {
+
+            //check if mouse is over UI
+            if (EventSystem.current.IsPointerOverGameObject())
+            {
+                Debug.Log("PlayerControl: ScrollOverUI");
+                PlayerScrollOverUI();
+            }
+        }
     }
 
     private void PlayerClickOnMap()
@@ -34,8 +45,16 @@ public class PlayerControl : MonoBehaviour
         ClickOnMap();
     }
 
+    private void PlayerScrollOverUI()
+    {
+        ScrollOverUI();
+    }
+
 
     //event handler for player click on map
     public delegate void PlayerClickOnMapEventHandler();
     public static event PlayerClickOnMapEventHandler ClickOnMap;
+    //event handler for player scroll mouse wheel
+    public delegate void PlayerScrollOverUIEventHandler();
+    public static event PlayerScrollOverUIEventHandler ScrollOverUI;
 }

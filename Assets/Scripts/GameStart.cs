@@ -17,6 +17,6 @@ public class GameStart : MonoBehaviour
     private void StartPrototype()
     {
         teamController.FindCharacters();
-        UIManager.GetCharacters(ref teamController);
+        UIManager.GetCharacters(teamController);
     }
 }

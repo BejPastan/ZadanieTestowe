@@ -35,7 +35,7 @@ public class CharacterMovement : MonoBehaviour
             if (agent.velocity.magnitude > 0.1f)
             {
                 //reduce stamina
-                stamina -= 10f;
+                stamina -= speed;
                 //check if stamina is not empty
                 if (stamina <= 0)
                 {
@@ -50,6 +50,7 @@ public class CharacterMovement : MonoBehaviour
             }
             await Task.Delay(500);
         }
+        RegenStamina();
     }
 
     //find destination point around given point
