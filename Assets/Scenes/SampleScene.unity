@@ -177,7 +177,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 77e67cb5d80b8634683829aaff773326, type: 2}
     - target: {fileID: 9093445014434533347, guid: 122522f2645426e4a8de9bc954fb673a, type: 3}
       propertyPath: m_Name
-      value: Character
+      value: Black
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -943,7 +943,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 250, y: 0}
+  m_SizeDelta: {x: 200, y: 0}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &711872986
 MonoBehaviour:
@@ -1495,37 +1495,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1038391846}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &1095057469
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1095057471}
-  m_Layer: 0
-  m_Name: GameObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1095057471
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1095057469}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.46027565, y: -3.6247559, z: 0.57852745}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1308686173
 GameObject:
   m_ObjectHideFlags: 0
@@ -2624,7 +2593,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: b39f98467b6af2841809dc9cdc82a6cb, type: 2}
     - target: {fileID: 9093445014434533347, guid: 122522f2645426e4a8de9bc954fb673a, type: 3}
       propertyPath: m_Name
-      value: Character (1)
+      value: Pink
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3013,6 +2982,5 @@ SceneRoots:
   - {fileID: 4139621491629833677}
   - {fileID: 91241067}
   - {fileID: 2029297549}
-  - {fileID: 1095057471}
   - {fileID: 1967504803}
   - {fileID: 1727069004}

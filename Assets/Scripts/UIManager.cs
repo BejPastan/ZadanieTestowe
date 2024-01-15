@@ -22,7 +22,7 @@ public class UIManager : MonoBehaviour
         for(int i = 0; i < team.characters.Length; i++)
         {
             //create button
-            GameObject button = Instantiate(characterButtonPrefab, transform);
+            GameObject button = Instantiate(characterButtonPrefab, GameObject.Find("Image").transform);
             //set button text to character name
             button.GetComponentInChildren<TextMeshProUGUI>().text = team.characters[i].transform.name;
             //add button to array
@@ -30,7 +30,6 @@ public class UIManager : MonoBehaviour
             //set position of button
             characterButtons[i].GetComponent<RectTransform>().anchoredPosition = new Vector2(0, -i * characterButtons[i].GetComponent<RectTransform>().rect.height * 2);
             //add listener to button
-            Debug.Log("UIManager: GetCharacters " + i);
             int num = i;
             characterButtons[i].onClick.AddListener(delegate { team.SetLeader(num); });
             characterButtons[i].onClick.AddListener(delegate { SelectLeader(num); });
